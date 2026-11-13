@@ -95,7 +95,8 @@ document.getElementById("whatsappButton").addEventListener("click",()=>{
   if(!selectedProduct)return;
   const message=`Hello NicholasFashion Word, I want to buy this: ${selectedProduct.name}. Description: ${selectedProduct.description}. Price shown: ${selectedProduct.price}. Image link: ${selectedProduct.image}`;
   const digits=WHATSAPP_NUMBER.replace(/\D/g,"");
-  window.open(`https://wa.me/${digits}?text=${encodeURIComponent(message)}`,"_blank","noopener");
+  const phoneNumber=digits.startsWith("0") ? `234${digits.slice(1)}` : digits;
+  window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,"_blank","noopener");
 });
 const menuToggle=document.getElementById("menuToggle"), mobileNav=document.getElementById("mobileNav");
 menuToggle.addEventListener("click",()=>{
